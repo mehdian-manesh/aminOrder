@@ -77,8 +77,6 @@
 			});
 		});
 
-
-
 		$('.selectSocialApp').select2({
 			dir: "rtl",
 			placeholder: {
