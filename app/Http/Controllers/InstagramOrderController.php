@@ -35,7 +35,13 @@ class InstagramOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        sesion([
+            'instagram_page_id' => $request->input('page_id'),
+            'ad_duration'   => $request->input('ad_duration'),
+            'social_network_type' => 'amin\InstagramOrder',
+        ]);
+        $final_price=$request->input('ad_duration')*$request->input('unit_price');
+        return view(order.create.p3,compact('final_price'));
     }
 
     /**

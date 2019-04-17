@@ -28,7 +28,7 @@
         </div>
         <div class="form-group">
             <label for="unit-price">هزینه هر ساعت: </label>
-            <input disabled type="text" class="unit-price" id="unit_price" value="00">
+            <input disabled type="text" class="unit-price" name="unit_price" id="unit_price" value="00">
         </div>
 		<div class="form-group">
 			<label for="ad_duration">مدت زمان تبلیغ: </label>
