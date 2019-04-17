@@ -35,14 +35,14 @@ class TelegramOrderController extends Controller
      */
     public function store(Request $request)
     {
-        sesion([
+        session([
             'telegram_channel_id' => $request->input('page_id'),
             'telegram_plan_id' => $request->input('plan_id'),
             'views'   => $request->input('views'),
             'social_network_type' => 'amin\TelegramOrder',
         ]);
         $final_price=$request->input('views')/1000*$request->input('unit_price');
-        return view(order.create.p3,compact('final_price'));
+        return view('order.create.p3',compact('final_price'));
     }
 
     /**
