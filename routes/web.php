@@ -23,11 +23,11 @@ Route::resource('customers', 'CustomerController')->only(
     ["store"]
 );
 
-Route::resource('instagram/order', 'InstagramOrderController')->only(
+Route::resource('instagram', 'InstagramOrderController')->only(
     ["store"]
 );
 
-Route::resource('telegram/order', 'TelegramOrderController')->only(
+Route::resource('telegram', 'TelegramOrderController')->only(
     ["store"]
 );
 

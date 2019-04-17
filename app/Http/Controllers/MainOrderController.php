@@ -44,7 +44,7 @@ class MainOrderController extends Controller
 
     public function store_p1(Request $request)
     {
-        sesion([
+        session([
             'customer_id' => $request->input('customer_id'),
             'social_app_id' => $request->input('social_app_id'),
         ]);
