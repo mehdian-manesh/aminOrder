@@ -19,7 +19,7 @@
 		@method('POST')
 		<div class="form-group">
 			<label for="select-customer">نام مشتری: </label>
-			<select class="select-customer">
+			<select name="customer_id" class="select-customer">
 				<option value="-1">یک مشتری انتخاب یا اضافه کنید</option>
 				@foreach ($customers as $customer)
 				<option value="{{ $customer->id }}">{{ $customer->name }}</option>
@@ -28,11 +28,11 @@
 		</div>
 		<div class="form-group">
 			<label for="selectSocialApp">شبکه اجتماعی: </label>
-			<select class="selectSocialApp">
+			<select name="social_app_id" class="selectSocialApp">
 				<option value="-1">یک شبکه اجتماعی انتخاب کنید</option>
 				@foreach ($socialApps as $socialApp)
 				<option value="{{ $socialApp->id }}" src="{{ asset($socialApp->icon_url) }}" style="width:25px;height:25px;">
-						{{ $socialApp->name }}
+					{{ $socialApp->name }}
 				</option>
 				@endforeach
 			</select>
@@ -46,16 +46,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		
 		$('.select-customer').select2({
 			dir: "rtl",
 			placeholder: {
-    		id: '-1', // the value of the option
-    		text: "یک مشتری انتخاب یا اضافه کنید"
-    		},
-    		tags: true,
-    	});
-
+				id: '-1', // the value of the option
+				text: "یک مشتری انتخاب یا اضافه کنید"
+			},
+			tags: true,
+		});
+		
 		$('.select-customer').on('select2:select', function (e) {
 			var data = e.params.data;
 			$.ajax({
@@ -76,21 +76,21 @@
 				}
 			});
 		});
-
+		
 		$('.selectSocialApp').select2({
 			dir: "rtl",
 			placeholder: {
-    			id: '-1', // the value of the option
-    			text: "یک شبکه اجتماعی انتخاب کنید"
-    		},
+				id: '-1', // the value of the option
+				text: "یک شبکه اجتماعی انتخاب کنید"
+			},
 			templateResult: formatState
 		});
-
+		
 		function formatState (state) {
 			if (!state.id || state.id<1) { return state.text; }
 			var $state = $(
-				'<span >' + state.text + '<img sytle="display: inline-block;" src="'+state.element.attributes.src.value+'" style="'+state.element.attributes.style.value+'" /> </span>'
-				);
+			'<span >' + state.text + '<img sytle="display: inline-block;" src="'+state.element.attributes.src.value+'" style="'+state.element.attributes.style.value+'" /> </span>'
+			);
 			return $state;
 		}
 		

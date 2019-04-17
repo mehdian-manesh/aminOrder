@@ -1,5 +1,5 @@
 @extends('layout')
 
-@@section('body')
+@section('body')
 	
 @endsection
