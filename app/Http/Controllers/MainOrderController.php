@@ -27,7 +27,7 @@ class MainOrderController extends Controller
     {
         $customers=\amin\Customer::all();
         $socialApps=\amin\SocialAppConfig::all();
-        return view('order.create',compact('customers','socialApps'));
+        return view('order.create.p1',compact('customers','socialApps'));
     }
 
     /**
@@ -38,7 +38,26 @@ class MainOrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->input());
+        // dd($request->input());
+
+    }
+
+    public function store_p1(Request $request)
+    {
+        sesion([
+            'customer_id' => $request->input('customer_id'),
+            'social_app_id' => $request->input('social_app_id'),
+        ]);
+
+        if ($request->input('social_app_id')==1) {
+            // Instagram
+            $pages=\amin\InstagramPage::all();
+            return view('order.create.p2.instagram', compact('pages'));
+        }
+        // Telegram
+        $pages=\amin\TelegramChannel::all();
+        $plans=\amin\TelegramPlan::all();
+        return view('order.create.p2.telegram', compact('pages','plans'));
     }
 
     /**

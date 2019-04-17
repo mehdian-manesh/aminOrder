@@ -14,7 +14,7 @@
 	<br>
 	<h3 class="text-center">افزودن سفارش</h3>
 	<br>
-	<form action="{{ route('orders.store') }}" method="POST" dir="rtl" class="text-right">
+	<form action="{{ route('orders.store_p1') }}" method="POST" dir="rtl" class="text-right">
 		@csrf
 		@method('POST')
 		<div class="form-group">
