@@ -72,7 +72,13 @@
 								<label class="custom-control-label" for="customCheck{{ $order->id }}"></label>
 							</div>
 						</td>
-						<td>{{ Verta::persianNumbers(Verta($order->payment_date)->formatDifference()) }}</td>
+						<td> 
+							@if (is_null($order->payment_date))
+							پرداخت نشده								
+							@else
+							{{ Verta::persianNumbers(Verta($order->payment_date)->formatDifference()) }}</td>	
+							@endif
+						</td>
 						<td>
 							<div class="d-flex justify-content-between">
 								<button class="show-modal btn btn-success" data-toggle="modal" data-target="#modalTable" data-orderId="{{ $order->id }}" data-url="{{ route('orders.show',['id'=>$order->id]) }}" data-title="نمایش اطلاعات کامل سفارش" >
