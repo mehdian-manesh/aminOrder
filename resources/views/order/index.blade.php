@@ -15,8 +15,10 @@
 	<div class="card">
 		<div class="card-header text-right">
 			<span>سفارش‌های فعلی</span>
-			<button class="edit-modal btn btn-info"  onclick="go2('{{ route('orders.create') }}')">
-				<i class="fa fa-edit"></i> افزودن سفارش
+			
+			{{ $orders->links() }}
+			<button class="edit-modal btn btn-warning"  onclick="go2('{{ route('orders.create') }}')">
+				<i class="fa fa-sticky-note"></i> افزودن سفارش
 			</button>
 		</div>
 		<div class="card-body">
