@@ -13715,7 +13715,11 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: "BNazanin";
-  font-size: 20px;
+  font-family: "BMitra";
+  font-size: large;
+}
+
+.table {
+  font-size: large;
 }
 

@@ -7,37 +7,45 @@
 </head>
 <body>
 	@yield('body','default body!')
-
+	
 	<!-- ModalCenter -->
 	<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+				<div class="modal-header bg-info" dir="rtl">
+					<div>
+						<h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
+					</div>
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body text-right">
 					Modal Message
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCenterYesBtn">Yes</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCenterYesBtn">بله</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">خیر</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- ModalTable -->
 	<div class="modal fade" id="modalTable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+				<div class="modal-header bg-info" dir="rtl">
+					<div>
+						<h5 class="modal-title text-center" id="exampleModalLongTitle">title</h5>
+					</div>
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
 				</div>
 				<div class="modal-body" dir="rtl">
 					<table class="table table-striped table-bordered table-hover text-right vertical-align">

@@ -74,15 +74,17 @@
 						</td>
 						<td>{{ Verta::persianNumbers(Verta($order->payment_date)->formatDifference()) }}</td>
 						<td>
-							<button class="show-modal btn btn-success" data-toggle="modal" data-target="#modalTable" data-orderId="{{ $order->id }}" data-url="{{ route('orders.show',['id'=>$order->id]) }}" data-title="نمایش اطلاعات کامل سفارش" >
-								<i class="fa fa-eye"></i> نمایش
-							</button>
-							<button class="edit-modal btn btn-info"  onclick="go2('{{ route('orders.edit',['id'=>$order->id]) }}')">
-								<i class="fa fa-edit"></i> ویرایش
-							</button>
-							<button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#modalCenter" data-orders_id="{{ $order->id }}" data-yes_btn_event="delete" data-url="{{ route('orders.destroy',['id'=>$order->id]) }}" data-title="مطمئنید؟" data-body="مطمئنید که می‌خواهید این سفارش را حذف کنید؟">
-								<i class="fa fa-trash"></i> حذف
-							</button>
+							<div class="d-flex justify-content-between">
+								<button class="show-modal btn btn-success" data-toggle="modal" data-target="#modalTable" data-orderId="{{ $order->id }}" data-url="{{ route('orders.show',['id'=>$order->id]) }}" data-title="نمایش اطلاعات کامل سفارش" >
+									<i class="fa fa-eye"></i> نمایش
+								</button>
+								<button class="edit-modal btn btn-info"  onclick="go2('{{ route('orders.edit',['id'=>$order->id]) }}')">
+									<i class="fa fa-edit"></i> ویرایش
+								</button>
+								<button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#modalCenter" data-orders_id="{{ $order->id }}" data-yes_btn_event="delete" data-url="{{ route('orders.destroy',['id'=>$order->id]) }}" data-title="مطمئنید؟" data-body="مطمئنید که می‌خواهید این سفارش را حذف کنید؟">
+									<i class="fa fa-trash"></i> حذف
+								</button>
+							</div>
 						</td>
 					</tr>
 					@endforeach
