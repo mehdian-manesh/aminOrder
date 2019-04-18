@@ -16,73 +16,74 @@
 	<br>
 	<form action="{{ route('orders.store') }}" method="POST" dir="rtl" class="text-right">
 		@csrf
-        @method('POST')
-        <div class="form-group">
+		@method('POST')
+		<div class="form-group">
 			<label for="ad_date_sec">تاریخ تبلیغ: </label>
 			<select name="ad_date_sec" class="ad_date_sec">
 				@for ($i = 0; $i < 60; $i++)
-					<option value="{{ $i }}">{{ $i }}</option>
+				<option value="{{ $i }}">{{ $i }}</option>
 				@endfor
 			</select>
 			<label for="ad_date_min">:</label>
 			<select name="ad_date_min" class="ad_date_min">
 				@for ($i = 0; $i < 60; $i++)
-					<option value="{{ $i }}">{{ $i }}</option>
+				<option value="{{ $i }}">{{ $i }}</option>
 				@endfor
 			</select>
 			<label for="ad_date_hour">:</label>
 			<select name="ad_date_hour" class="ad_date_hour">
 				@for ($i = 0; $i < 24; $i++)
-					<option value="{{ $i }}">{{ $i }}</option>
+				<option value="{{ $i }}">{{ $i }}</option>
 				@endfor
 			</select>
 			
 			<label for="ad_date_day">  -  </label>
 			<select name="ad_date_day" class="ad_date_day">
 				@for ($i = 1; $i <= 31 ; $i++)
-					<option value="{{ $i }}"
-					@if ($i==Verta()->day)
-					selected
-					@endif
-					>{{ $i }}</option>
+				<option value="{{ $i }}"
+				@if ($i==Verta()->day)
+				selected
+				@endif
+				>{{ $i }}</option>
 				@endfor
 			</select>
 			<label for="ad_date_month">/</label>
 			<select name="ad_date_month" class="ad_date_month">
 				@for ($i = 1; $i <= 12 ; $i++)
-					<option value="{{ $i }}"
-					@if ($i==Verta()->month)
-					selected
-					@endif
-					>{{ $i }}</option>
+				<option value="{{ $i }}"
+				@if ($i==Verta()->month)
+				selected
+				@endif
+				>{{ $i }}</option>
 				@endfor
 			</select>
 			<label for="ad_date_year">/</label>
 			<select name="ad_date_year" class="ad_date_year">
 				@for ($i = 1300; $i < 2100 ; $i++)
-					<option value="{{ $i }}"
-					@if ($i==Verta()->year)
-					selected
-					@endif
-					>{{ $i }}</option>
+				<option value="{{ $i }}"
+				@if ($i==Verta()->year)
+				selected
+				@endif
+				>{{ $i }}</option>
 				@endfor
 			</select>
-        </div>
-
+		</div>
+		
 		<div class="form-group">
 			<label for="off">تخفیف: </label>
 			<input name="off" class="off" name="off" value="00" size="2" onfocus="this.select()">
 			<label for="off">٪</label>
 		</div>
-
+		
 		<div class="form-group">
 			<label for="final_price">مبلغ نهایی: </label>
 			<input name="final_price" class="final_price" name="final_price" value="{{ $final_price }}" onfocus="this.select()">
 			<label for="final_price">تومان</label>
 		</div>
-
-		<button type="submit" class="btn btn-success">ثبت سفارش</button>
-		<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		<div class="d-flex justify-content-between">
+			<button type="submit" class="btn btn-success">ثبت سفارش</button>
+			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		</div>
 	</form>
 </div>
 @endsection
@@ -93,14 +94,14 @@
 	$(document).ready(function() {
 		
 		$('.ad_date_sec').select2();
-        $('.ad_date_min').select2();
+		$('.ad_date_min').select2();
 		$('.ad_date_hour').select2();
 		$('.ad_date_day').select2();
 		$('.ad_date_month').select2();
 		$('.ad_date_year').select2();
-
+		
 		$( ".off" )
-  		.keyup(function() {
+		.keyup(function() {
 			var value = $( this ).val();
 			if ($.isNumeric(value) && value>=0 && value<=100 ) {
 				value={{ $final_price }} - {{ $final_price }}*value/100;
@@ -108,8 +109,8 @@
 			}else{
 				$( ".final_price" ).val( {{ $final_price }} );
 			}
-  		})
-  		.keyup();
+		})
+		.keyup();
 		
 	});
 </script>

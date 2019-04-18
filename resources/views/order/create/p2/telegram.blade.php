@@ -21,34 +21,36 @@
 			<label for="select-page">نام کانال: </label>
 			<select name="page_id" class="select-page">
 				<option value="-1">
-                    یک کانال انتخاب کنید
-                </option>
+					یک کانال انتخاب کنید
+				</option>
 				@foreach ($pages as $page)
-            		<option value="{{ $page->id }}">{{ $page->name }}</option>
+				<option value="{{ $page->id }}">{{ $page->name }}</option>
 				@endforeach
 			</select>
-        </div>
-        <div class="form-group">
+		</div>
+		<div class="form-group">
 			<label for="select-plan">نام تعرفه: </label>
 			<select name="plan_id" class="select-plan">
 				<option value="-1">
-                    یک تعرفه انتخاب کنید
-                </option>
+					یک تعرفه انتخاب کنید
+				</option>
 				@foreach ($plans as $plan)
-            <option value="{{ $plan->id }}" unit_price="{{ $plan->unit_price }}">{{ $plan->name }}</option>
+				<option value="{{ $plan->id }}" unit_price="{{ $plan->unit_price }}">{{ $plan->name }}</option>
 				@endforeach
 			</select>
-        </div>
-        <div class="form-group">
-            <label for="unit-price">هزینه هر K بازدید: </label>
-            <input type="text" class="unit-price" name="unit_price" id="unit_price" value="00">
-        </div>
+		</div>
+		<div class="form-group">
+			<label for="unit-price">هزینه هر K بازدید: </label>
+			<input type="text" class="unit-price" name="unit_price" id="unit_price" value="00">
+		</div>
 		<div class="form-group">
 			<label for="views">تعداد بازدید: </label>
-            <input name="views" class="views" name="views" value="00" onfocus="this.select()">
+			<input name="views" class="views" name="views" value="00" onfocus="this.select()">
 		</div>
-		<button type="submit" class="btn btn-info">صفحه بعد</button>
-		<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		<div class="d-flex justify-content-between">
+			<button type="submit" class="btn btn-info">صفحه بعد</button>
+			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		</div>
 	</form>
 </div>
 @endsection
@@ -66,8 +68,8 @@
 			},
 			// tags: true,
 		});
-
-        $('.select-plan').select2({
+		
+		$('.select-plan').select2({
 			dir: "rtl",
 			placeholder: {
 				id: '-1', // the value of the option
@@ -77,27 +79,27 @@
 		});
 		
 		$('.select-plan').on('select2:select', function (e) {
-            var data = e.params.data;
-            $('#unit_price').val(data.element.attributes.unit_price.value);
+			var data = e.params.data;
+			$('#unit_price').val(data.element.attributes.unit_price.value);
 			// $.ajax({
-			// 	url: "{{ route('customers.store') }}",
-			// 	type: 'POST',
-			// 	headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-			// 	data: {name: data.text , _method: "POST"},
-			// 	success: function(arg) {
-			// 		if (arg) {
-			// 			//remove previous WRONG item (it`s id is not correct).
-			// 			$(".select-page option[value='" + data.id + "']").remove();
-			// 			//add new item that currently created a received from Ajax.
-			// 			var newOption = new Option(arg.name, arg.id, false, false);
-			// 			$('.select-page').append(newOption);//.trigger('change');
-			// 			//select this new create item in select-box
-			// 			$('.sselect-page').val(arg.id);
-			// 		}
-			// 	}
-			// });
-		});
-		
-	});
-</script>
-@endsection
+				// 	url: "{{ route('customers.store') }}",
+				// 	type: 'POST',
+				// 	headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				// 	data: {name: data.text , _method: "POST"},
+				// 	success: function(arg) {
+					// 		if (arg) {
+						// 			//remove previous WRONG item (it`s id is not correct).
+						// 			$(".select-page option[value='" + data.id + "']").remove();
+						// 			//add new item that currently created a received from Ajax.
+						// 			var newOption = new Option(arg.name, arg.id, false, false);
+						// 			$('.select-page').append(newOption);//.trigger('change');
+						// 			//select this new create item in select-box
+						// 			$('.sselect-page').val(arg.id);
+						// 		}
+						// 	}
+						// });
+					});
+					
+				});
+			</script>
+			@endsection

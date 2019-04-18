@@ -54,7 +54,7 @@ class MainOrderController extends Controller
 
         $final_price=$request->input('final_price');
         if( !(is_numeric($final_price) && $final_price>=0 ) ){
-            //ERROR ?????????????????????????????
+            return redirect()->route('orders.store_cancel');
         }
 
         // save Social_Network_Order ----

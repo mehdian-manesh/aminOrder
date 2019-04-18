@@ -22,21 +22,23 @@
 			<select name="page_id" class="select-page">
 				<option value="-1">یک پیج انتخاب کنید</option>
 				@foreach ($pages as $page)
-            <option value="{{ $page->id }}" unit_price="{{ $page->unit_price }}">{{ $page->name }}</option>
+				<option value="{{ $page->id }}" unit_price="{{ $page->unit_price }}">{{ $page->name }}</option>
 				@endforeach
 			</select>
-        </div>
-        <div class="form-group">
-            <label for="unit-price">هزینه هر ساعت: </label>
-            <input type="text" class="unit-price" name="unit_price" id="unit_price" value="00">
-        </div>
+		</div>
+		<div class="form-group">
+			<label for="unit-price">هزینه هر ساعت: </label>
+			<input type="text" class="unit-price" name="unit_price" id="unit_price" value="00">
+		</div>
 		<div class="form-group">
 			<label for="ad_duration">مدت زمان تبلیغ: </label>
-            <input name="ad_duration" class="ad_duration" name="ad_duration" value="00" onfocus="this.select()">
-            <label for="ad_duration">ساعت</label>
+			<input name="ad_duration" class="ad_duration" name="ad_duration" value="00" onfocus="this.select()">
+			<label for="ad_duration">ساعت</label>
 		</div>
-		<button type="submit" class="btn btn-info">صفحه بعد</button>
-		<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		<div class="d-flex justify-content-between">
+			<button type="submit" class="btn btn-info">صفحه بعد</button>
+			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		</div>
 	</form>
 </div>
 @endsection
@@ -56,27 +58,27 @@
 		});
 		
 		$('.select-page').on('select2:select', function (e) {
-            var data = e.params.data;
-            $('#unit_price').val(data.element.attributes.unit_price.value);
+			var data = e.params.data;
+			$('#unit_price').val(data.element.attributes.unit_price.value);
 			// $.ajax({
-			// 	url: "{{ route('customers.store') }}",
-			// 	type: 'POST',
-			// 	headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-			// 	data: {name: data.text , _method: "POST"},
-			// 	success: function(arg) {
-			// 		if (arg) {
-			// 			//remove previous WRONG item (it`s id is not correct).
-			// 			$(".select-page option[value='" + data.id + "']").remove();
-			// 			//add new item that currently created a received from Ajax.
-			// 			var newOption = new Option(arg.name, arg.id, false, false);
-			// 			$('.select-page').append(newOption);//.trigger('change');
-			// 			//select this new create item in select-box
-			// 			$('.sselect-page').val(arg.id);
-			// 		}
-			// 	}
-			// });
-		});
-		
-	});
-</script>
-@endsection
+				// 	url: "{{ route('customers.store') }}",
+				// 	type: 'POST',
+				// 	headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				// 	data: {name: data.text , _method: "POST"},
+				// 	success: function(arg) {
+					// 		if (arg) {
+						// 			//remove previous WRONG item (it`s id is not correct).
+						// 			$(".select-page option[value='" + data.id + "']").remove();
+						// 			//add new item that currently created a received from Ajax.
+						// 			var newOption = new Option(arg.name, arg.id, false, false);
+						// 			$('.select-page').append(newOption);//.trigger('change');
+						// 			//select this new create item in select-box
+						// 			$('.sselect-page').val(arg.id);
+						// 		}
+						// 	}
+						// });
+					});
+					
+				});
+			</script>
+			@endsection

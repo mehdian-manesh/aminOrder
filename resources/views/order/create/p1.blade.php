@@ -37,8 +37,10 @@
 				@endforeach
 			</select>
 		</div>
-		<button type="submit" class="btn btn-info">صفحه بعد</button>
-		<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		<div class="d-flex justify-content-between">
+			<button type="submit" class="btn btn-info">صفحه بعد</button>
+			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+		</div>
 	</form>
 </div>
 @endsection
