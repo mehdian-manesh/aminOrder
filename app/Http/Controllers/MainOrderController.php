@@ -103,6 +103,12 @@ class MainOrderController extends Controller
         return view('order.create.p2.telegram', compact('pages','plans'));
     }
 
+    public function store_cancel()
+    {
+        session()->flush();
+        return redirect()->route('orders.index');
+    }
+
     /**
      * Display the specified resource.
      *

@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('orders', 'MainOrderController');
-
 Route::post('orders/p1', 'MainOrderController@store_p1')->name('orders.store_p1');
+Route::get('orders/store/cancel', 'MainOrderController@store_cancel')->name('orders.store_cancel');
 
 Route::resource('customers', 'CustomerController')->only(
     ["store"]

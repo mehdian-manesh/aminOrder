@@ -82,6 +82,7 @@
 		</div>
 
 		<button type="submit" class="btn btn-success">ثبت سفارش</button>
+		<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
 	</form>
 </div>
 @endsection

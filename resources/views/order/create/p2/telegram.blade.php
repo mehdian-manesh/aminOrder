@@ -48,6 +48,7 @@
             <input name="views" class="views" name="views" value="00" onfocus="this.select()">
 		</div>
 		<button type="submit" class="btn btn-info">صفحه بعد</button>
+		<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
 	</form>
 </div>
 @endsection
