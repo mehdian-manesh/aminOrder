@@ -8,22 +8,29 @@
 @csrf
 
 @section('body')
-<img src={{ asset('img/instagram.png') }} style="width:35px;height:35px;" alter="Instagram">
 <div class="col-lg-12" dir="rtl">
+	<p></p>
 	<h2 class="text-center">گزارش سفارش‌ها</h2>
 	<br>
 	<div class="card">
-		<div class="card-header text-right">
-			<span>سفارش‌های فعلی</span>
-			
-			{{ $orders->links() }}
-			<button class="edit-modal btn btn-warning"  onclick="go2('{{ route('orders.create') }}')">
-				<i class="fa fa-sticky-note"></i> افزودن سفارش
-			</button>
+		<div class="card-header">
+			<div class="d-flex justify-content-between">
+				<div class="align-self-center">
+					سفارش‌های فعلی:
+				</div>
+				<div class="align-self-center" dir="ltr">
+					{{ $orders->links() }}
+				</div>
+				<div class="align-self-center">
+					<button class="edit-modal btn btn-warning"  onclick="go2('{{ route('orders.create') }}')">
+						<i class="fa fa-sticky-note"></i> افزودن سفارش
+					</button>
+				</div>
+			</div>
 		</div>
 		<div class="card-body">
 			<table class="table table-striped table-bordered table-hover text-right vertical-align">
-				<thead class="thead-dark align-top">
+				<thead class="thead-dark align-top text-center">
 					<tr>
 						<th>شماره
 							<br>
@@ -35,9 +42,13 @@
 						<th>تاریخ تبلیغ</th>
 						<th>تخفیف</th>
 						<th>مبلغ نهایی <br> (تومان)</th>
-						<th>واریز شد؟</th>
+						<th>
+							تایید
+							<br>
+							پرداخت
+						</th>
 						<th>تاریخ واریز</th>
-						<th>ویرایش</th>
+						<th>امکانات</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,7 +56,9 @@
 					<tr class="item{{$order->id}}">
 						<td>{{ Verta::persianNumbers($order->id) }}</td>
 						<td>{{ $order->customer->name }}</td>
-						<td>{{ $order->socialNetworkApp()->name }}</td>
+						<td class="text-center">
+							<img src="{{ asset($order->socialNetworkApp()->icon_url) }}" style="width:35px;height:35px;" alter="{{ $order->socialNetworkApp()->name }}">
+						</td>
 						<td>{{ $order->socialNetwork->page()->name }}</td>
 						<td dir="ltr" class="text-left">{{ Verta::persianNumbers(Verta($order->ad_date)->formatJalaliDatetime()) }}</td>
 						<td dir="ltr" class="text-left">٪{{ Verta::persianNumbers($order->off) }}</td>

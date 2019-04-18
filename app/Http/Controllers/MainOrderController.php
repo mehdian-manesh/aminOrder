@@ -14,7 +14,7 @@ class MainOrderController extends Controller
      */
     public function index()
     {
-        $orders = \amin\MainOrder::orderBy('id', 'desc')->paginate(3);
+        $orders = \amin\MainOrder::orderBy('id', 'desc')->paginate(5);
         return view('order.index', compact('orders'));
     }
 
