@@ -82,7 +82,7 @@
 		</div>
 		<div class="d-flex justify-content-between">
 			<button type="submit" class="btn btn-success">ثبت سفارش</button>
-			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'><i class="fa fa-remove"></i> انصراف</button>
 		</div>
 	</form>
 </div>

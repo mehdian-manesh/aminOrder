@@ -48,8 +48,8 @@
 			<input name="views" class="views" name="views" value="00" onfocus="this.select()">
 		</div>
 		<div class="d-flex justify-content-between">
-			<button type="submit" class="btn btn-info">صفحه بعد</button>
-			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'>انصراف</button>
+			<button type="submit" class="btn btn-info"><i class="fa fa-arrow-circle-right"></i> صفحه بعد</button>
+			<button type="button" class="btn btn-danger" onclick='location.href="{{ route("orders.store_cancel") }}"'><i class="fa fa-remove"></i> انصراف</button>
 		</div>
 	</form>
 </div>
