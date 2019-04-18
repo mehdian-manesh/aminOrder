@@ -30,8 +30,8 @@
 					<option value="{{ $i }}">{{ $i }}</option>
 				@endfor
 			</select>
-			<label for="ad_date_hur">:</label>
-			<select name="ad_date_hur" class="ad_date_hur">
+			<label for="ad_date_hour">:</label>
+			<select name="ad_date_hour" class="ad_date_hour">
 				@for ($i = 0; $i < 24; $i++)
 					<option value="{{ $i }}">{{ $i }}</option>
 				@endfor
@@ -93,7 +93,7 @@
 		
 		$('.ad_date_sec').select2();
         $('.ad_date_min').select2();
-		$('.ad_date_hur').select2();
+		$('.ad_date_hour').select2();
 		$('.ad_date_day').select2();
 		$('.ad_date_month').select2();
 		$('.ad_date_year').select2();

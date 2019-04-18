@@ -20,9 +20,12 @@ class MainOrder extends Model
     //      timestamps
 
     protected $fillable=[
+        'customer_id',
+        'social_network_type',
+        'social_network_id',
         'ad_date',
         'off',
-        'final_price',//??????????????????
+        'final_price',
         'payment_date',
         'payment_confirmed'
     ];
